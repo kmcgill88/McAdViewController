@@ -8,7 +8,7 @@ target 'McAdViewControllerExample' do
   puts "Downloading McAdViewController..."
   require 'open-uri'
   open('./McAdViewControllerExample/McAdViewController.swift', 'wb') do |file|
-    file << open('http://localhost/McAdViewController.swift').read
+    file << open('https://raw.githubusercontent.com/kmcgill88/McAdViewController/master/McAdViewControllerExample/McAdViewController.swift').read
   end
   puts "Successfully downloaded McAdViewController! :)"
 
