@@ -7,10 +7,11 @@ McAdViewController is a UIViewController used to display Google Banner and Inter
 
 ## Usage
 
-1. [Remove Main interface](http://mcgilldevtech.com/img/github/mcadviewcontroller/target-settings.jpg) from your targets `General Settings`
-2. [Uncheck initial View Controller](http://mcgilldevtech.com/img/github/mcadviewcontroller/initial-viewcontroller.jpg) in your storyboard.
-3. [Tag your view controller with an Id](http://mcgilldevtech.com/img/github/mcadviewcontroller/storyboard-id.jpg)
-4. In your `AppDelegate` do something similar to the below. Don't forget to put in your own `applicationId`, ect...
+1. Run `pod install` like normal, then [add McAdViewController to your project](http://mcgilldevtech.com/img/github/mcadviewcontroller/add-to-project.jpg)
+2. [Remove Main interface](http://mcgilldevtech.com/img/github/mcadviewcontroller/target-settings.jpg) from your targets `General Settings`
+3. [Uncheck initial View Controller](http://mcgilldevtech.com/img/github/mcadviewcontroller/initial-viewcontroller.jpg) in your storyboard.
+4. [Tag your view controller with an Id](http://mcgilldevtech.com/img/github/mcadviewcontroller/storyboard-id.jpg)
+5. In your `AppDelegate` do something similar to the below. Don't forget to put in your own `applicationId`, ect...
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -25,11 +26,11 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     // Initialize McAdViewcontroller and pass your 'contentController' viewController
     //
     mcAdViewController = McAdViewController(contentController: viewController, // Required
-      applicationId: "ca-app-pub-<YOUR APP ID>", // Required
-      bannerAdUnitId: "ca-app-pub-<YOUR BANNER ID>", // Conditional Optional - Required if interstantialAdUnitId not provided
-      interstantialAdUnitId: "ca-app-pub-<YOUR INT ID>", // Conditional Optional - Required if bannerAdUnitId not provided
-      isBannerBottom: false, // Optional - Default: true
-      debug: true) // Optional - Default: false
+                                            applicationId: "ca-app-pub-<YOUR APP ID>", // Required
+                                            bannerAdUnitId: "ca-app-pub-<YOUR BANNER ID>", // Conditional Optional - Required if interstantialAdUnitId not provided
+                                            interstantialAdUnitId: "ca-app-pub-<YOUR INT ID>", // Conditional Optional - Required if bannerAdUnitId not provided
+                                            isBannerBottom: false, // Optional - Default: true
+                                            debug: true) // Optional - Default: false
 
     // Set McAdViewController as the root
     //
@@ -65,7 +66,7 @@ end
 puts "Successfully downloaded McAdViewController! :)"
 ```
 - Run `pod install`
-- In Xcode, right click in Project navigator and `Add File to <PROJECT NAME>`
+- In Xcode, right click in Project navigator and [add McAdViewController to your project](http://mcgilldevtech.com/img/github/mcadviewcontroller/add-to-project.jpg)
 
 #### Optional Installation
 - To stay on tagged release, replace `master` with the tag number. ie. `https://raw.githubusercontent.com/kmcgill88/McAdViewController/0.1.0/McAdViewControllerExample/McAdViewController.swift`
