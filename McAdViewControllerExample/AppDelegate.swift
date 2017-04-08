@@ -24,13 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //
         let viewController:ViewController = storyboard.instantiateViewController(withIdentifier: "ViewControllerId") as! ViewController
         
-        // Initialize Ad View controller and pass your 'contentController' viewController
+        // Initialize McAdViewcontroller and pass your 'contentController' viewController
         //
         mcAdViewController = McAdViewController(contentController: viewController, // Required
                                                       applicationId: "ca-app-pub-<YOUR APP ID>", // Required
                                                       bannerAdUnitId: "ca-app-pub-<YOUR BANNER ID>", // Conditional Optional - Required if interstantialAdUnitId not provided
                                                       interstantialAdUnitId: "ca-app-pub-<YOUR INT ID>", // Conditional Optional - Required if bannerAdUnitId not provided
-                                                      isBannerBottom: true, // Optional - Default: true
+                                                      isBannerBottom: false, // Optional - Default: true
                                                       debug: true) // Optional - Default: false
  
         // Set McAdViewController as the root
