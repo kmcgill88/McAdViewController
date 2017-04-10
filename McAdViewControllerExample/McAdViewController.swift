@@ -92,8 +92,6 @@ open class McAdViewController : UIViewController {
     
     fileprivate func resizeScreen(){
         UIView.animate(withDuration: BANNER_ANIMATION_INTERVAL, animations:{
-            self.viewDidLayoutSubviews()
-            //self.view.setNeedsDisplay()
             self.view.layoutIfNeeded()
         })
     }
@@ -138,6 +136,8 @@ open class McAdViewController : UIViewController {
     }
 
     open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+         super.viewWillTransition(to: size, with: coordinator)
+        
         // Set the ad to the right size
         //
         if size.width > size.height {
