@@ -92,8 +92,6 @@ open class McAdViewController : UIViewController {
     
     fileprivate func resizeScreen(){
         UIView.animate(withDuration: BANNER_ANIMATION_INTERVAL, animations:{
-            self.viewDidLayoutSubviews()
-            //self.view.setNeedsDisplay()
             self.view.layoutIfNeeded()
         })
     }
