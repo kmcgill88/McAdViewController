@@ -42,11 +42,6 @@ open class McAdViewController : UIViewController {
         self.interstantialAdUnitId = interstantialAdUnitId
         self.isBannerBottom = isBannerBottom!
         self.debug = debug!
-
-        // Setup Ads if needed
-        //
-        prepareInterstantialAd()
-        requestBannerAd()
     }
 
     private override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -63,19 +58,28 @@ open class McAdViewController : UIViewController {
         isBannerBottom = true
         setNeedsStatusBarAppearanceUpdate()
         
-        // Simulator failure to remove from view
+        // Simulate failure to remove from view
         //
         bannerAdFailedToLoad = true
         resizeScreen()
         
-        // Release from memory
+        // Remove and release from memory
         //
+        bannerAdView?.removeFromSuperview()
         bannerAdView = nil
     }
 
     override open func loadView() {
         let contentView = UIView(frame: UIScreen.main.bounds)
-        contentView.addSubview(bannerAdView!)
+        
+        if let gAd = self.getBannerAdView() {
+            contentView.addSubview(gAd)
+        } else {
+            // Update the status bar color to default
+            //
+            isBannerBottom = true
+            setNeedsStatusBarAppearanceUpdate()
+        }
         
         self.addChildViewController(contentController)
         contentView.addSubview(contentController.view)
@@ -84,14 +88,25 @@ open class McAdViewController : UIViewController {
         self.view = contentView
     }
     
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Setup Ads if needed
+        //
+        prepareInterstantialAd()
+        requestBannerAd()
+    }
+    
     override open func viewDidLayoutSubviews() {
-        if let gAd = getBannerAdView() {
-            self.makeBannerChanges(bannerAdView: gAd)
-        }
+        super.viewDidLayoutSubviews()
+        resizeScreen()
     }
     
     fileprivate func resizeScreen(){
         UIView.animate(withDuration: BANNER_ANIMATION_INTERVAL, animations:{
+            if let gAd = self.getBannerAdView() {
+                self.makeBannerChanges(bannerAdView: gAd)
+            }
             self.view.layoutIfNeeded()
         })
     }
@@ -136,15 +151,8 @@ open class McAdViewController : UIViewController {
     }
 
     open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-         super.viewWillTransition(to: size, with: coordinator)
-        
-        // Set the ad to the right size
-        //
-        if size.width > size.height {
-            bannerAdView?.adSize = kGADAdSizeSmartBannerLandscape
-        } else {
-            bannerAdView?.adSize = kGADAdSizeSmartBannerPortrait
-        }
+        super.viewWillTransition(to: size, with: coordinator)
+        setBannerSmartSize(size: size)
     }
     
     override open var preferredStatusBarStyle : UIStatusBarStyle {
@@ -179,9 +187,21 @@ extension McAdViewController : GADBannerViewDelegate {
             bannerAdView!.adUnitID = bannerAdUnitId
             bannerAdView!.rootViewController = self
             bannerAdView!.delegate = self
+            setBannerSmartSize(size: CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height))
         }
 
         return bannerAdView
+    }
+    
+    
+    fileprivate func setBannerSmartSize(size: CGSize) {
+        // Set the ad to the right size
+        //
+        if size.width > size.height {
+            bannerAdView?.adSize = kGADAdSizeSmartBannerLandscape
+        } else {
+            bannerAdView?.adSize = kGADAdSizeSmartBannerPortrait
+        }
     }
     
     fileprivate func requestBannerAd() {
