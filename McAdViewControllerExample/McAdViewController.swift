@@ -106,20 +106,22 @@ open class McAdViewController : UIViewController {
         })
     }
     
-    fileprivate func fullScreen() {
+    fileprivate func fullScreen(height:CGFloat) {
         // Push banner off screen
         //
-        if let gAd = self.getBannerAdView() {
-            var bannerFrame:CGRect = gAd.frame
-            bannerFrame.origin.y = (isBannerBottom) ? self.view.bounds.size.height : 0 - bannerFrame.size.height
-            gAd.frame = bannerFrame
+        if bannerAdView != nil {
+            var bannerFrame:CGRect = bannerAdView!.frame
+            bannerFrame.origin.y = (isBannerBottom) ? height : 0 - bannerFrame.size.height
+            bannerAdView!.frame = bannerFrame
         }
-
+        
         // Full screen content view controller
         //
-        contentController.view.frame = self.view.bounds
+        let controllerFrame:CGRect = self.view.bounds
+        contentController.view.frame = controllerFrame
     }
 
+    
     private func makeBannerChanges(bannerAdView:GADBannerView) {
         
         var contentFrame:CGRect = self.view.bounds
@@ -144,7 +146,8 @@ open class McAdViewController : UIViewController {
         // If ad doesn't load then give user full screen
         //
         if(bannerAdFailedToLoad){
-            fullScreen()
+            fullScreen(height: self.view.bounds.size.height)
+            return
         }
         
         // Set new frames
@@ -155,7 +158,7 @@ open class McAdViewController : UIViewController {
 
     open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        fullScreen()
+        fullScreen(height: size.height)
         setBannerSmartSize(size: size)
     }
     
@@ -188,6 +191,9 @@ extension McAdViewController : GADBannerViewDelegate {
         
         if bannerAdView == nil && bannerAdUnitId != nil {
             bannerAdView = GADBannerView()
+            var bannerFrame:CGRect = bannerAdView!.frame
+            bannerFrame.origin.y = (isBannerBottom) ? self.view.bounds.size.height : 0 - bannerFrame.size.height
+            bannerAdView?.frame = bannerFrame
             bannerAdView!.adUnitID = bannerAdUnitId
             bannerAdView!.rootViewController = self
             bannerAdView!.delegate = self
@@ -196,7 +202,6 @@ extension McAdViewController : GADBannerViewDelegate {
 
         return bannerAdView
     }
-    
     
     fileprivate func setBannerSmartSize(size: CGSize) {
         // Set the ad to the right size
