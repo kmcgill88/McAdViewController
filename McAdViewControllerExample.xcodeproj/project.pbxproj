@@ -15,6 +15,7 @@
 		E7E96B221E9731F000CE9639 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E96B201E9731F000CE9639 /* LaunchScreen.storyboard */; };
 		E7E96B2A1E9732C100CE9639 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E7E96B291E9732C100CE9639 /* Podfile */; };
 		E7E96B2C1E9735DD00CE9639 /* McAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E96B2B1E9735DD00CE9639 /* McAdViewController.swift */; };
+		E7FA53931EBC22C1003398DF /* NonRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FA53921EBC22C1003398DF /* NonRootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		E7E96B231E9731F000CE9639 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7E96B291E9732C100CE9639 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E7E96B2B1E9735DD00CE9639 /* McAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McAdViewController.swift; sourceTree = "<group>"; };
+		E7FA53921EBC22C1003398DF /* NonRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonRootViewController.swift; sourceTree = "<group>"; };
 		FCE88A27AB668A227A0F1834 /* Pods_McAdViewControllerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_McAdViewControllerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 				E7E96B2B1E9735DD00CE9639 /* McAdViewController.swift */,
 				E7E96B171E9731F000CE9639 /* AppDelegate.swift */,
 				E7E96B191E9731F000CE9639 /* ViewController.swift */,
+				E7FA53921EBC22C1003398DF /* NonRootViewController.swift */,
 				E7E96B1B1E9731F000CE9639 /* Main.storyboard */,
 				E7E96B1E1E9731F000CE9639 /* Assets.xcassets */,
 				E7E96B201E9731F000CE9639 /* LaunchScreen.storyboard */,
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7FA53931EBC22C1003398DF /* NonRootViewController.swift in Sources */,
 				E7E96B1A1E9731F000CE9639 /* ViewController.swift in Sources */,
 				E7E96B2C1E9735DD00CE9639 /* McAdViewController.swift in Sources */,
 				E7E96B181E9731F000CE9639 /* AppDelegate.swift in Sources */,

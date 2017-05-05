@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,19 +30,29 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpg-mG-2e0">
-                                <rect key="frame" x="122" y="242" width="130" height="30"/>
+                                <rect key="frame" x="122" y="220" width="130" height="30"/>
                                 <state key="normal" title="Remove Banner Ad"/>
                                 <connections>
                                     <action selector="removeBannerAd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2cv-Ay-6V5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1C-pn-KOb">
+                                <rect key="frame" x="75" y="300" width="224" height="30"/>
+                                <state key="normal" title="Present Non-root ViewController"/>
+                                <connections>
+                                    <segue destination="h6L-7y-UBh" kind="presentation" id="Cop-eR-Zcr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tpg-mG-2e0" firstAttribute="top" secondItem="Ide-UO-aLs" secondAttribute="bottom" constant="72" id="4vD-7M-es8"/>
-                            <constraint firstItem="tpg-mG-2e0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="106" id="MTX-mu-gwi"/>
+                            <constraint firstItem="tpg-mG-2e0" firstAttribute="top" secondItem="Ide-UO-aLs" secondAttribute="bottom" constant="50" id="4vD-7M-es8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q1C-pn-KOb" secondAttribute="trailing" constant="60" id="BRM-wz-sWQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tpg-mG-2e0" secondAttribute="trailing" constant="107" id="F5t-gr-1pw"/>
+                            <constraint firstItem="Q1C-pn-KOb" firstAttribute="top" secondItem="tpg-mG-2e0" secondAttribute="bottom" constant="50" id="Gm8-4r-DWF"/>
+                            <constraint firstItem="tpg-mG-2e0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="106" id="HLg-7T-iFa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ide-UO-aLs" secondAttribute="trailing" id="TAo-kz-afV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tpg-mG-2e0" secondAttribute="trailing" constant="107" id="W4F-Ts-Org"/>
+                            <constraint firstItem="Q1C-pn-KOb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="59" id="iKC-zH-yoG"/>
                             <constraint firstItem="Ide-UO-aLs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="q4x-tD-tSn"/>
                             <constraint firstItem="Ide-UO-aLs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="120" id="yyX-Uy-Q1k"/>
                         </constraints>
@@ -51,6 +61,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-62" y="79"/>
+        </scene>
+        <!--Non Root View Controller-->
+        <scene sceneID="Q0u-Wn-ncY">
+            <objects>
+                <viewController id="h6L-7y-UBh" customClass="NonRootViewController" customModule="McAdViewControllerExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zS1-Rr-f5x"/>
+                        <viewControllerLayoutGuide type="bottom" id="aD6-KQ-yzM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DKW-4C-zz6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYh-y2-l5n">
+                                <rect key="frame" x="16" y="319" width="343" height="30"/>
+                                <state key="normal" title="Display Interstitial From Non-root ViewController"/>
+                                <connections>
+                                    <action selector="displayInterstitial:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I3v-wr-keB"/>
+                                    <action selector="displayInterstitial:" destination="h6L-7y-UBh" eventType="touchUpInside" id="V7s-hE-JVZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlA-6p-bRt">
+                                <rect key="frame" x="16" y="611" width="343" height="30"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="h6L-7y-UBh" eventType="touchUpInside" id="7yL-I6-imQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AlA-6p-bRt" firstAttribute="leading" secondItem="DKW-4C-zz6" secondAttribute="leadingMargin" id="G9e-BJ-Zf9"/>
+                            <constraint firstItem="cYh-y2-l5n" firstAttribute="centerX" secondItem="DKW-4C-zz6" secondAttribute="centerX" id="I2K-QK-6RZ"/>
+                            <constraint firstItem="aD6-KQ-yzM" firstAttribute="top" secondItem="AlA-6p-bRt" secondAttribute="bottom" constant="26" id="eeG-A8-81p"/>
+                            <constraint firstItem="cYh-y2-l5n" firstAttribute="centerY" secondItem="DKW-4C-zz6" secondAttribute="centerY" id="jU2-D7-d4F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AlA-6p-bRt" secondAttribute="trailing" id="qLA-yJ-SAR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gSk-o0-iQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="702" y="77"/>
         </scene>
     </scenes>
 </document>
