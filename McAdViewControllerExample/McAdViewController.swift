@@ -248,7 +248,7 @@ extension McAdViewController : GADInterstitialDelegate {
             if interstantial.isReady && !interstantial.hasBeenUsed {
                 interstantial.present(fromRootViewController: fromViewController ?? self)
             } else {
-                printDebug("Interstitial Ad not ready, requesting to prep now.")
+                printDebug("Interstitial Ad 'isReady'=false or 'hasBeenUsed'=true, new Interstitial required. Requesting to prepareInterstantialAd now.")
                 prepareInterstantialAd()
             }
         }
@@ -265,7 +265,7 @@ extension McAdViewController : GADInterstitialDelegate {
         
         if let interstantial = interstantialAd {
             if interstantial.hasBeenUsed {
-                printDebug("Interstitial Ad is used, requesting to prep now.")
+                printDebug("Interstitial Ad 'hasBeenUsed', requesting to prepareInterstantialAd now.")
                 prepareInterstantialAd()
             }
         }
