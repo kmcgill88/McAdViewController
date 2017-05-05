@@ -247,10 +247,10 @@ extension McAdViewController : GADInterstitialDelegate {
         return interstantialAd
     }
 
-    open func displayInterstitial(){
+    open func displayInterstitial(fromViewController:UIViewController? = nil){
         if let inter = interstantialAd {
             if inter.isReady {
-                inter.present(fromRootViewController: self)
+                inter.present(fromRootViewController: fromViewController ?? self)
             } else {
                 printDebug("Interstitial Ad not ready, requesting to prep now.")
                 prepareInterstantialAd()
