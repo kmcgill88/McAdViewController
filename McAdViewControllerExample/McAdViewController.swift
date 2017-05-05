@@ -123,7 +123,6 @@ open class McAdViewController : UIViewController {
 
     
     private func makeBannerChanges(bannerAdView:GADBannerView) {
-        
         var contentFrame:CGRect = self.view.bounds
         var bannerFrame:CGRect = bannerAdView.frame
         
@@ -188,7 +187,6 @@ extension McAdViewController : GADBannerViewDelegate {
     }
     
     fileprivate func getBannerAdView() -> GADBannerView? {
-        
         if bannerAdView == nil && bannerAdUnitId != nil {
             bannerAdView = GADBannerView()
             var bannerFrame:CGRect = bannerAdView!.frame
@@ -227,18 +225,16 @@ extension McAdViewController : GADBannerViewDelegate {
 extension McAdViewController : GADInterstitialDelegate {
     
     fileprivate func prepareInterstantialAd() {
-
-        if let intAd = getInterstitialAd() {
+        if let interstantial = getInterstitialAd() {
             let request = GADRequest()
             if debug {
                 request.testDevices = [kGADSimulatorID]
             }
-            intAd.load(request)
+            interstantial.load(request)
         }
     }
     
     fileprivate func getInterstitialAd() -> GADInterstitial? {
-        
         if interstantialAdUnitId != nil {
             interstantialAd = GADInterstitial(adUnitID: interstantialAdUnitId!)
             interstantialAd!.delegate = self
@@ -248,9 +244,9 @@ extension McAdViewController : GADInterstitialDelegate {
     }
 
     open func displayInterstitial(fromViewController:UIViewController? = nil){
-        if let inter = interstantialAd {
-            if inter.isReady {
-                inter.present(fromRootViewController: fromViewController ?? self)
+        if let interstantial = interstantialAd {
+            if interstantial.isReady && !interstantial.hasBeenUsed {
+                interstantial.present(fromRootViewController: fromViewController ?? self)
             } else {
                 printDebug("Interstitial Ad not ready, requesting to prep now.")
                 prepareInterstantialAd()
