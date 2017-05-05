@@ -89,7 +89,7 @@ Unfortunately, McAdViewController is _**NOT**_ available through [CocoaPods](htt
 - Add the following line to your Podfile:
 
 ```ruby
-pod 'Google-Mobile-Ads-SDK', '~> 7.19'
+pod 'Google-Mobile-Ads-SDK', '~> 7.20'
 
 puts "Downloading McAdViewController..."
 require 'open-uri'
