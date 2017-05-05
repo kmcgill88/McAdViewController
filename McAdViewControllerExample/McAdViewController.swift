@@ -262,5 +262,12 @@ extension McAdViewController : GADInterstitialDelegate {
     }
     public func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
         printDebug("Interstitial - didFailToReceiveAdWithError \(error)")
+        
+        if let interstantial = interstantialAd {
+            if interstantial.hasBeenUsed {
+                printDebug("Interstitial Ad is used, requesting to prep now.")
+                prepareInterstantialAd()
+            }
+        }
     }
 }
