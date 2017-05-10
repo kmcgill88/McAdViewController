@@ -87,10 +87,10 @@ open class McAdViewController : UIViewController {
         
         self.view = contentView
     }
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        
+
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         // Setup Ads if needed
         //
         prepareInterstantialAd()
@@ -121,7 +121,6 @@ open class McAdViewController : UIViewController {
         contentController.view.frame = controllerFrame
     }
 
-    
     private func makeBannerChanges(bannerAdView:GADBannerView) {
         var contentFrame:CGRect = self.view.bounds
         var bannerFrame:CGRect = bannerAdView.frame
@@ -195,7 +194,7 @@ extension McAdViewController : GADBannerViewDelegate {
             bannerAdView!.adUnitID = bannerAdUnitId
             bannerAdView!.rootViewController = self
             bannerAdView!.delegate = self
-            setBannerSmartSize(size: CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+            setBannerSmartSize(size: self.view.bounds.size)
         }
 
         return bannerAdView
@@ -257,9 +256,11 @@ extension McAdViewController : GADInterstitialDelegate {
     public func interstitialWillDismissScreen(_ ad: GADInterstitial) {
         prepareInterstantialAd()
     }
+    
     public func interstitialDidReceiveAd(_ ad: GADInterstitial) {
         printDebug("Interstitial - DidReceiveAd")
     }
+    
     public func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
         printDebug("Interstitial - didFailToReceiveAdWithError \(error)")
         
