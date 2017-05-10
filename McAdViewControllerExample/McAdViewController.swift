@@ -195,7 +195,7 @@ extension McAdViewController : GADBannerViewDelegate {
             bannerAdView!.adUnitID = bannerAdUnitId
             bannerAdView!.rootViewController = self
             bannerAdView!.delegate = self
-            setBannerSmartSize(size: CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+            setBannerSmartSize(size: self.view.bounds.size)
         }
 
         return bannerAdView
