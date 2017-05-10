@@ -87,10 +87,10 @@ open class McAdViewController : UIViewController {
         
         self.view = contentView
     }
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        
+
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         // Setup Ads if needed
         //
         prepareInterstantialAd()
