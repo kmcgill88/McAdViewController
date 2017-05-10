@@ -121,7 +121,6 @@ open class McAdViewController : UIViewController {
         contentController.view.frame = controllerFrame
     }
 
-    
     private func makeBannerChanges(bannerAdView:GADBannerView) {
         var contentFrame:CGRect = self.view.bounds
         var bannerFrame:CGRect = bannerAdView.frame
@@ -257,9 +256,11 @@ extension McAdViewController : GADInterstitialDelegate {
     public func interstitialWillDismissScreen(_ ad: GADInterstitial) {
         prepareInterstantialAd()
     }
+    
     public func interstitialDidReceiveAd(_ ad: GADInterstitial) {
         printDebug("Interstitial - DidReceiveAd")
     }
+    
     public func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
         printDebug("Interstitial - didFailToReceiveAdWithError \(error)")
         
