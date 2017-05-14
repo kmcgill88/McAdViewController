@@ -52,11 +52,9 @@ open class McAdViewController : UIViewController {
         super.init(coder: aDecoder)!
     }
     
-    open func removeBannerAd(){
-        // Update the status bar color to default
-        //
-        isBannerBottom = true
-        setNeedsStatusBarAppearanceUpdate()
+    open func removeBannerAd() {
+        
+        useContentViewControllerPreferredStatusBarStyle()
         
         // Simulate failure to remove from view
         //
@@ -75,10 +73,7 @@ open class McAdViewController : UIViewController {
         if let gAd = self.getBannerAdView() {
             contentView.addSubview(gAd)
         } else {
-            // Update the status bar color to default
-            //
-            isBannerBottom = true
-            setNeedsStatusBarAppearanceUpdate()
+            useContentViewControllerPreferredStatusBarStyle()
         }
         
         self.addChildViewController(contentController)
@@ -97,7 +92,7 @@ open class McAdViewController : UIViewController {
         requestBannerAd()
     }
     
-    fileprivate func resizeScreen(){
+    fileprivate func resizeScreen() {
         UIView.animate(withDuration: BANNER_ANIMATION_INTERVAL, animations:{
             if let gAd = self.getBannerAdView() {
                 self.makeBannerChanges(bannerAdView: gAd)
@@ -161,7 +156,15 @@ open class McAdViewController : UIViewController {
     }
     
     override open var preferredStatusBarStyle : UIStatusBarStyle {
-        return (isBannerBottom) ? .default : .lightContent
+        return (isBannerBottom) ? contentController.preferredStatusBarStyle : .lightContent
+    }
+    
+    private func useContentViewControllerPreferredStatusBarStyle() {
+        // Update the status bar color
+        // Simulate isBannerBottom = true to use contentController.preferredStatusBarStyle
+        //
+        isBannerBottom = true
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     fileprivate func printDebug(_ text:String) {
