@@ -52,7 +52,7 @@ open class McAdViewController : UIViewController {
         super.init(coder: aDecoder)!
     }
     
-    open func removeBannerAd(){
+    open func removeBannerAd() {
         
         useContentViewControllerPreferredStatusBarStyle()
         
@@ -92,7 +92,7 @@ open class McAdViewController : UIViewController {
         requestBannerAd()
     }
     
-    fileprivate func resizeScreen(){
+    fileprivate func resizeScreen() {
         UIView.animate(withDuration: BANNER_ANIMATION_INTERVAL, animations:{
             if let gAd = self.getBannerAdView() {
                 self.makeBannerChanges(bannerAdView: gAd)

@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let app:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override open var preferredStatusBarStyle : UIStatusBarStyle {
+        // McAdViewController will automatically use this preference if isBannerBottom or after you call removeBannerAd().
         return .default
     }
 
