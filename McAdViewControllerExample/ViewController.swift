@@ -11,6 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
     let app:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    override open var preferredStatusBarStyle : UIStatusBarStyle {
+        return .default
+    }
 
     @IBAction func displayInterstitial(_ sender: UIButton) {
         app.mcAdViewController?.displayInterstitial()

@@ -76,8 +76,8 @@
 		E7E96B161E9731F000CE9639 /* McAdViewControllerExample */ = {
 			isa = PBXGroup;
 			children = (
-				E7E96B2B1E9735DD00CE9639 /* McAdViewController.swift */,
 				E7E96B171E9731F000CE9639 /* AppDelegate.swift */,
+				E7E96B2B1E9735DD00CE9639 /* McAdViewController.swift */,
 				E7E96B191E9731F000CE9639 /* ViewController.swift */,
 				E7FA53921EBC22C1003398DF /* NonRootViewController.swift */,
 				E7E96B1B1E9731F000CE9639 /* Main.storyboard */,
