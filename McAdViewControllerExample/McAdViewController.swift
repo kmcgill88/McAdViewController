@@ -65,6 +65,7 @@ open class McAdViewController : UIViewController {
         //
         bannerAdView?.removeFromSuperview()
         bannerAdView = nil
+        bannerAdUnitId = nil
     }
 
     override open func loadView() {
