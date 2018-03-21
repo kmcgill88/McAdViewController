@@ -3,7 +3,7 @@
 //  McAdViewControllerExample
 //
 //  Created by Kevin McGill on 5/4/17.
-//  Copyright © 2017 McGill DevTech, LLC. All rights reserved.
+//  Copyright © 2017-2018 McGill DevTech, LLC. All rights reserved.
 //
 
 import UIKit
