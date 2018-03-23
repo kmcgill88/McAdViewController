@@ -184,7 +184,7 @@ open class McAdViewController : UIViewController {
     
     private func getVerticalSafeArea() -> CGFloat {
         UIApplication.shared.keyWindow?.backgroundColor = safeAreaColor
-        if #available(iOS 11.0, *) {
+        if safeAreaExists(), #available(iOS 11.0, *) {
             printDebug("safeAreaInsets: \(String(describing: UIApplication.shared.keyWindow?.safeAreaInsets))")
             if let window = UIApplication.shared.keyWindow {
                 return isBannerBottom ? window.safeAreaInsets.bottom : window.safeAreaInsets.top

@@ -28,14 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //
         // Test Ad units from https://developers.google.com/admob/ios/test-ads#sample_ad_units
         //
-        let appId = "ca-app-pub-7570377070409946~7550602533"
         mcAdViewController = McAdViewController(contentController: viewController, // Required
-                                                      applicationId: appId, // Required
-                                                      bannerAdUnitId: "ca-app-pub-3940256099942544/2934735716", // Conditional Optional - Required if interstantialAdUnitId not provided
-                                                      interstantialAdUnitId: "ca-app-pub-3940256099942544/4411468910", // Conditional Optional - Required if bannerAdUnitId not provided
-                                                      isBannerBottom: false, // Optional - Default: true
-                                                      debug: true) // Optional - Default: false
- 
+                                                applicationId: "ca-app-pub-<YOUR APP ID>", // Required
+                                                bannerAdUnitId: "ca-app-pub-<YOUR BANNER ID>", // Conditional Optional - Required if interstantialAdUnitId not provided
+                                                interstantialAdUnitId: "ca-app-pub-<YOUR INT ID>", // Conditional Optional - Required if bannerAdUnitId not provided
+                                                isBannerBottom: false, // Optional - Default: true
+                                                debug: true) // Optional - Default: false
+        mcAdViewController?.safeAreaColor = .red
         // Set McAdViewController as the root
         //
         window!.rootViewController = mcAdViewController!
