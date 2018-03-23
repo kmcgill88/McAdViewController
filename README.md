@@ -1,5 +1,5 @@
 # McAdViewController
-![](http://mcgilldevtech.com/img/github/mcadviewcontroller/bottom-banner.jpg)![](http://mcgilldevtech.com/img/github/mcadviewcontroller/top-banner.jpg)
+![](https://mcgilldevtech.com/img/github/mcadviewcontroller/mcadviewcontroller-1.0.0-top.png)![](https://mcgilldevtech.com/img/github/mcadviewcontroller/mcadviewcontroller-1.0.0-bottom.png)
 
 
 ## About
@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                 interstantialAdUnitId: "ca-app-pub-<YOUR INT ID>", // Conditional Optional - Required if bannerAdUnitId not provided
                                                 isBannerBottom: false, // Optional - Default: true
                                                 debug: true) // Optional - Default: false
+        // safeAreaColor defaults to black
+        //
+        mcAdViewController?.safeAreaColor = .red
 
         // Set McAdViewController as the root
         //
@@ -80,8 +83,8 @@ To run the example project, clone the repo, run `pod install` then run it in fro
 
 
 ## Requirements
-- Swift 3+
-- Xcode 8
+- Swift 4
+- Xcode 9
 
 ## Installation
 Unfortunately, McAdViewController is _**NOT**_ available through [CocoaPods](http://cocoapods.org) due to Google distributing static libraries. Discussed at length [here](https://github.com/CocoaPods/CocoaPods/issues/5624).
@@ -89,7 +92,7 @@ Unfortunately, McAdViewController is _**NOT**_ available through [CocoaPods](htt
 - Add the following line to your Podfile:
 
 ```ruby
-pod 'Google-Mobile-Ads-SDK', '~> 7.20'
+pod 'Google-Mobile-Ads-SDK', '~> 7.29'
 
 puts "Downloading McAdViewController..."
 require 'open-uri'
@@ -102,7 +105,7 @@ puts "Successfully downloaded McAdViewController! :)"
 - In Xcode, right click in Project navigator and [add McAdViewController to your project](http://mcgilldevtech.com/img/github/mcadviewcontroller/add-to-project.jpg)
 
 #### Optional Installation
-- To stay on tagged release, replace `master` with the tag number. ie. `https://raw.githubusercontent.com/kmcgill88/McAdViewController/0.1.0/McAdViewControllerExample/McAdViewController.swift`
+- To stay on tagged release, replace `master` with the tag number. ie. `https://raw.githubusercontent.com/kmcgill88/McAdViewController/1.0.0/McAdViewControllerExample/McAdViewController.swift`
 -  To change the download directory, replace `McAdViewControllerExample` with your project folder name ie:
 ```
 open('./<YOUR PROJECT NAME>/McAdViewController.swift', 'wb') do |file|
