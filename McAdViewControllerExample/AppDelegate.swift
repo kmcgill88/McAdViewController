@@ -13,9 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mcAdViewController:McAdViewController?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -34,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                 interstantialAdUnitId: "ca-app-pub-<YOUR INT ID>", // Conditional Optional - Required if bannerAdUnitId not provided
                                                 isBannerBottom: false, // Optional - Default: true
                                                 debug: true) // Optional - Default: false
+        
         mcAdViewController?.safeAreaColor = .red
         // Set McAdViewController as the root
         //
