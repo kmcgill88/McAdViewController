@@ -100,9 +100,9 @@ open class McAdViewController : UIViewController {
             useContentViewControllerPreferredStatusBarStyle()
         }
         
-        self.addChildViewController(contentController)
+        self.addChild(contentController)
         contentView.addSubview(contentController.view)
-        contentController.didMove(toParentViewController: self)
+        contentController.didMove(toParent: self)
         
         self.view = contentView
     }
