@@ -261,7 +261,7 @@ extension McAdViewController : GADBannerViewDelegate {
     
     public func adView(_ view: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         bannerAdFailedToLoad = true
-        printDebug("Banner Ad - didFailToReceiveAdWithError")
+        printDebug("Banner Ad - didFailToReceiveAdWithError. \(error)")
         resizeScreen()
     }
     
