@@ -61,6 +61,10 @@ open class McAdViewController : UIViewController {
         self.interstantialAdUnitId = interstantialAdUnitId
         self.isBannerBottom = isBannerBottom
         self.debug = debug
+        
+        // Setup Interstantial Ad if needed
+        //
+        prepareInterstantialAd()
     }
 
     private override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -106,9 +110,8 @@ open class McAdViewController : UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Setup Ads if needed
+        // Setup Banner Ad if needed
         //
-        prepareInterstantialAd()
         requestBannerAd()
     }
     
